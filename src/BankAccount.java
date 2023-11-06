@@ -4,10 +4,14 @@ import java.util.Scanner;
 public class BankAccount {
     private double rawBankBalance;
     private String bankBalance;
+    public String customerName;
+    private String customerId;
 
 //    Constructor
-    public BankAccount(double rawBankBalance) {
+    public BankAccount(double rawBankBalance, String customerName, String customerId) {
         this.rawBankBalance = rawBankBalance;
+        this.customerName = customerName;
+        this.customerId = customerId;
         transformRawBankBalance();
     }
 
@@ -41,10 +45,15 @@ public class BankAccount {
             return "sufficient funds";
     }
 
-    public static String bankActions() {
+    public static char bankActions() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Please select one action: " +
-                "View my bank balance/Withdraw money/Deposit money/Exit: ");
-        return scanner.nextLine();
+        System.out.println("*******************************************");
+        System.out.println("Menu");
+        System.out.println("a) Check Balance");
+        System.out.println("b) Deposit money");
+        System.out.println("c) Withdraw money");
+        System.out.println("d) Exit");
+        System.out.print("Please select one option (a/b/c/d): ");
+        return scanner.next().charAt(0);
     }
 }
